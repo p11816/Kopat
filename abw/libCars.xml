@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cars>
+  <Mark>
+    <name>Audi</name>
+    <models>
+      <model>A3</model>
+      <model>A4</model>
+      <model>A6</model>
+      <model>A7</model>
+      <model>A8</model>
+    </models>
+  </Mark>
+  <Mark>
+    <name>BMW</name>
+    <models>
+      <model>3 series</model>
+      <model>5 series</model>
+      <model>7 series</model>
+      <model>X3</model>
+      <model>X5</model>
+    </models>
+  </Mark>
+  <Mark> 
+    <name>Chrysler</name>
+    <models>
+      <model>300C</model>
+      <model>Crossfire</model>
+      <model>Intrepid</model>
+      <model>Neon</model>
+      <model>Sebring</model>
+    </models>
+  </Mark>
+  <Mark>
+    <name>Dodge</name>
+    <models>
+      <model>Caliber</model>
+      <model>Dakota</model>
+      <model>Magnum</model>
+      <model>Ram</model>
+      <model>Viper</model>
+    </models>
+  </Mark>
+  <Mark>
+    <name>Fiat</name>
+    <models>
+      <model>500</model>
+      <model>Albea</model>
+      <model>Coupe</model>
+      <model>Stilo</model>
+      <model>Palio</model>
+    </models>
+  </Mark>
+</cars>
