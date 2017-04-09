@@ -43,7 +43,7 @@
             this.buttonMinus = new System.Windows.Forms.Button();
             this.buttonMulti = new System.Windows.Forms.Button();
             this.buttonDivision = new System.Windows.Forms.Button();
-            this.buttonEqually = new System.Windows.Forms.Button();
+            this.buttonResult = new System.Windows.Forms.Button();
             this.buttonSpace = new System.Windows.Forms.Button();
             this.buttonSQRT = new System.Windows.Forms.Button();
             this.Display = new System.Windows.Forms.TextBox();
@@ -180,11 +180,11 @@
             // buttonDot
             // 
             this.buttonDot.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDot.Location = new System.Drawing.Point(218, 270);
+            this.buttonDot.Location = new System.Drawing.Point(128, 248);
             this.buttonDot.Name = "buttonDot";
             this.buttonDot.Size = new System.Drawing.Size(52, 55);
             this.buttonDot.TabIndex = 10;
-            this.buttonDot.Tag = ".";
+            this.buttonDot.Tag = ",";
             this.buttonDot.Text = ".";
             this.buttonDot.UseVisualStyleBackColor = true;
             this.buttonDot.Click += new System.EventHandler(this.buttonNumberClick);
@@ -235,15 +235,16 @@
             this.buttonDivision.UseVisualStyleBackColor = true;
             this.buttonDivision.Click += new System.EventHandler(this.buttonDivision_Click);
             // 
-            // buttonEqually
+            // buttonResult
             // 
-            this.buttonEqually.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonEqually.Location = new System.Drawing.Point(244, 187);
-            this.buttonEqually.Name = "buttonEqually";
-            this.buttonEqually.Size = new System.Drawing.Size(52, 116);
-            this.buttonEqually.TabIndex = 17;
-            this.buttonEqually.Text = "=";
-            this.buttonEqually.UseVisualStyleBackColor = true;
+            this.buttonResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonResult.Location = new System.Drawing.Point(244, 187);
+            this.buttonResult.Name = "buttonResult";
+            this.buttonResult.Size = new System.Drawing.Size(52, 116);
+            this.buttonResult.TabIndex = 17;
+            this.buttonResult.Text = "=";
+            this.buttonResult.UseVisualStyleBackColor = true;
+            this.buttonResult.Click += new System.EventHandler(this.buttonResult_Click);
             // 
             // buttonSpace
             // 
@@ -266,6 +267,7 @@
             this.buttonSQRT.TabIndex = 15;
             this.buttonSQRT.Text = "√";
             this.buttonSQRT.UseVisualStyleBackColor = true;
+            this.buttonSQRT.Click += new System.EventHandler(this.buttonSQRT_Click);
             // 
             // Display
             // 
@@ -283,7 +285,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(308, 318);
             this.Controls.Add(this.Display);
-            this.Controls.Add(this.buttonEqually);
+            this.Controls.Add(this.buttonResult);
             this.Controls.Add(this.buttonSpace);
             this.Controls.Add(this.buttonSQRT);
             this.Controls.Add(this.buttonMinus);
@@ -326,7 +328,7 @@
         private System.Windows.Forms.Button buttonMinus;
         private System.Windows.Forms.Button buttonMulti;
         private System.Windows.Forms.Button buttonDivision;
-        private System.Windows.Forms.Button buttonEqually;
+        private System.Windows.Forms.Button buttonResult;
         private System.Windows.Forms.Button buttonSpace;
         private System.Windows.Forms.Button buttonSQRT;
         private System.Windows.Forms.TextBox Display;
