@@ -15,7 +15,6 @@ namespace Calc10
         //флаг действия
         char act;
         double buffer;
-        bool firstAction;
 
         public Form1()
         {
@@ -88,12 +87,14 @@ namespace Calc10
         //backspace button
         private void buttonSpace_Click(object sender, EventArgs e)
         {
-            Display.Text = (Convert.ToInt32(Display.Text) / 10).ToString();
+            Display.Text = (Convert.ToDouble(Display.Text) / 10).ToString();
         }
 
         private void KeyNumberDown(object sender, KeyEventArgs e)
         {
-            //Control control = (Control)sender;
+            Control control = (Control)sender;
+            char symbol = Convert.ToChar(control.Text);
+            PrintToDisplay(symbol);
         }
 
         private void buttonResult_Click(object sender, EventArgs e)
