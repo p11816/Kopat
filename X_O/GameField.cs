@@ -14,11 +14,14 @@ namespace X_O
     {
         private GameModel model = new GameModel();
         private Button[,] field;
-        // Dictionary<GameModel .State>
+        Dictionary<GameModel.State, string> symbols = new Dictionary<GameModel.State,string>();
         public GameField()
         {
             InitializeComponent();
-           // model.UpdateView += 
+            symbols[GameModel.State.X] = "X";
+            symbols[GameModel.State.O] = "O";
+            symbols[GameModel.State.none] = "";
+
             field = new Button[3,3];
             for (int i = 0; i < field.GetLength(0); i++)
             {
@@ -32,29 +35,43 @@ namespace X_O
                     b.Click += GameField_Click;
                     //добавляем кнопку на форму
                     this.Controls.Add(b);
-                    field[i.j] = b;
+                    //добавили кнопку в массив
+                    field[i,j] = b;
                 }
             }
+            model.UpdateView += UpdateView;
         }
         //обработчик для кнопки
-        private void GameField_Click(object sender, EventArgs e)
+        void GameField_Click(object sender, EventArgs e)
         {
             Button b = (Button)sender;
             //координаты кнопки
             Point p = (Point)b.Tag;
+            try
+            {
+                this.MakeMove(p.X, p.Y, model.CurrentMove);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
-        void Iview.UpdateView(GameModel model)
+        public void UpdateView(GameModel model)
         {
             for (int i = 0; i < field.GetLength(0); i++)
             {
                 for (int j = 0; j < field.GetLength(1); i++)
                 {
-                    
-                   // field[i,j].Text = 
+
+                    field[i, j].Text = symbols[model.Field[i, j]]; 
                 }
             }
+        }
+        public void MakeMove(int i, int j, GameModel.State side)
+        {
+            model.MakeMove(i, j, side);
         }
     }
 }

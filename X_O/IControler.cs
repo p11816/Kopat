@@ -8,6 +8,6 @@ namespace X_O
 {
     interface IControler
     {
-
+        void MakeMove(int i, int j, GameModel.State side);
     }
 }

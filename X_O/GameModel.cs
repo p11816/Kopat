@@ -6,18 +6,24 @@ using System.Threading.Tasks;
 
 namespace X_O
 {
-    class GameModel
+    public class GameModel
     {
-        enum State
+        public enum State
         {
             X,
             O,
             none
         }
+        
+        public State[,] Field { get; private set; }
+        public int CountStep { get; private set; }
+        public State Winner  { get; private set; }
+        public bool GameOver { get; private set; }
+        public State CurrentMove { get; private set; }
 
         public GameModel()
         {
-            Field = new State[3, 3]; 
+            Field = new State[3, 3];
             for (int i = 0; i < Field.GetLength(0); i++)
             {
                 for (int j = 0; j < Field.GetLength(1); i++)
@@ -30,12 +36,8 @@ namespace X_O
             GameOver = false;
             CurrentMove = State.X;
         }
-        public State[,] Field { get; private set; }
-        public int CountStep { get; private set; }
-        public State Winner  { get; private set; }
-        public bool GameOver { get; private set; }
-        public State CurrentMove { get; private set; }
-        public delegate void UpdateViewDelegate();
+
+        public delegate void UpdateViewDelegate(GameModel model);
         public event UpdateViewDelegate UpdateView;
         public void MakeMove(int i, int j, State side)
         {
@@ -60,6 +62,7 @@ namespace X_O
             CountStep++;
             CheckForGameOver();
             CurrentMove = side == State.O ? State.X : State.O;
+            UpdateView(this);
         }
         private void CheckForGameOver()
         {
